@@ -1,0 +1,140 @@
+spring:
+
+  application:
+    name: api-gateway
+
+  cloud:
+
+    gateway:
+
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      routes:
+
+        # ====================================================
+        # AUTH
+        # ====================================================
+
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/**
+
+
+        # ====================================================
+        # PROFILE
+        # ====================================================
+
+        - id: profile-service
+          uri: lb://profile-service
+          predicates:
+            - Path=/profile/**
+
+
+        # ====================================================
+        # PRODUCT
+        # ====================================================
+
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/products/**
+
+
+        # ====================================================
+        # INVENTORY
+        # ====================================================
+
+        - id: inventory-service
+          uri: lb://inventory-service
+          predicates:
+            - Path=/inventory/**
+
+
+        # ====================================================
+        # CART
+        # ====================================================
+
+        - id: cart-service
+          uri: lb://cart-service
+          predicates:
+            - Path=/cart/**
+
+
+        # ====================================================
+        # WISHLIST
+        # ====================================================
+
+        - id: wishlist-service
+          uri: lb://wishlist-service
+          predicates:
+            - Path=/wishlist/**
+
+
+        # ====================================================
+        # ORDER
+        # ====================================================
+
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/orders/**
+
+
+        # ====================================================
+        # PAYMENT
+        # ====================================================
+
+        - id: payment-service
+          uri: lb://payment-service
+          predicates:
+            - Path=/payments/**
+
+
+        # ====================================================
+        # DELIVERY
+        # ====================================================
+
+        - id: delivery-service
+          uri: lb://delivery-service
+          predicates:
+            - Path=/delivery/**
+
+
+        # ====================================================
+        # REVIEW
+        # ====================================================
+
+        - id: review-service
+          uri: lb://review-service
+          predicates:
+            - Path=/reviews/**
+
+
+        # ====================================================
+        # NOTIFICATION
+        # ====================================================
+
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/notifications/**
+
+
+server:
+  port: 8080
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+    register-with-eureka: true
+    fetch-registry: true
+
+  instance:
+    prefer-ip-address: true
