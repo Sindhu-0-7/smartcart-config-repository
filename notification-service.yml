@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: notification-service
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+
+server:
+  port: 8092
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+    register-with-eureka: true
+    fetch-registry: true
+
+  instance:
+    prefer-ip-address: true
+
+
+rabbitmq:
+  exchange:
+    name: smartcart.exchange
+
+  notification:
+    queue: notification.queue
+
+    routing-key: notification.send
