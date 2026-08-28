@@ -42,5 +42,4 @@ rabbitmq:
   payment:
     queue: payment.queue
 
-  payment:
     routing-key: payment.process
