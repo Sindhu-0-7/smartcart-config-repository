@@ -1,9 +1,4 @@
-# ============================================================
-# SMARTCART AUTH SERVICE
-# ============================================================
-
 spring:
-
   application:
     name: auth-service
 
@@ -16,40 +11,11 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-
     show-sql: false
-
     properties:
       hibernate:
         format_sql: true
 
-server:
-  port: 8081
-
-
-# ============================================================
-# JWT
-# ============================================================
-
-jwt:
-  secret: SmartCartSuperSecretKeyForJwtAuthentication2026VeryLongSecureKey
-  expiration: 86400000
-
-
-# ============================================================
-# ADMIN REGISTRATION
-# ============================================================
-
-admin:
-  registration:
-    secret: SmartCartAdmin@2026
-
-
-# ============================================================
-# CORS
-# ============================================================
-
-spring:
   web:
     cors:
       allowed-origins:
@@ -72,3 +38,17 @@ spring:
         - "*"
 
       allow-credentials: true
+
+
+server:
+  port: 8081
+
+
+jwt:
+  secret: SmartCartSuperSecretKeyForJwtAuthentication2026VeryLongSecureKey
+  expiration: 86400000
+
+
+admin:
+  registration:
+    secret: SmartCartAdmin@2026
