@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: delivery-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/smartcart_delivery?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=Asia/Kolkata&allowPublicKeyRetrieval=true
+    username: root
+    password: Sindhu@07
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    show-sql: false
+
+    properties:
+      hibernate:
+        format_sql: true
+
+
+server:
+  port: 8090
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+    register-with-eureka: true
+    fetch-registry: true
+
+  instance:
+    prefer-ip-address: true
+
+
+rabbitmq:
+  exchange:
+    name: smartcart.exchange
+
+  delivery:
+    queue: delivery.queue
+
+    routing-key: delivery.create
